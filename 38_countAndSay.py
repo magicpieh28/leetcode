@@ -1,10 +1,9 @@
-import itertools
-
-class Solution:
+class Solution(object):
 	def countAndSay(self, n: int):
 		self.n = n
-		
+
 		outputs = {}
+
 		loop_count = 1
 
 		# import pdb; pdb.set_trace()
@@ -21,22 +20,6 @@ class Solution:
 				outputs[loop_count] = num
 				loop_count += 1
 				# print(f'outputs => {outputs}')
-
-			elif len(outputs[loop_count - 1]) == 2:
-				for i, j in itertools.combinations(outputs[loop_count - 1], 2):
-					if i != j:
-						num_i = str(i.count(i)) + i
-						num_j = str(j.count(j)) + j
-						num = num_i + num_j
-						outputs[loop_count] = num
-						loop_count += 1
-						# print(f'outputs => {outputs}')
-
-					elif i == j:
-						num = str(outputs[loop_count - 1].count(j)) + j
-						outputs[loop_count] = num
-						loop_count += 1
-						# print(f'outputs => {outputs}')
 
 			else:
 				number = []
@@ -70,8 +53,5 @@ class Solution:
 				# print(f'outputs => {outputs}')
 				del number[:]
 				# import pdb; pdb.set_trace()
-				
-		print(outputs[n])
 
-sol = Solution()
-sol.countAndSay(9)
+		return outputs[n]
