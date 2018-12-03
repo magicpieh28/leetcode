@@ -4,6 +4,7 @@ class Solution:
 
 		string = s.split(' ')
 		space = ''
+		
 		for idx, i in enumerate(string[::-1]):
 			if i == space and idx != len(string) - 1:
 				continue
