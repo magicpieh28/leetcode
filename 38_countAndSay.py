@@ -3,7 +3,6 @@ class Solution(object):
 		self.n = n
 
 		outputs = {}
-
 		loop_count = 1
 
 		# import pdb; pdb.set_trace()
