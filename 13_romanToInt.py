@@ -5,12 +5,9 @@ class Solution:
 		roman = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
 		number = [1000, 500, 100, 50, 10, 5, 1]
 
-		result = 0
-		index = 0
+		result = 0; index = 0
 		try:
 			while index <= len(s) - 1:
-				print(s[index])
-				print(index)
 				if index == len(s) - 1:
 					result += number [roman.index(s[index])]
 					break
