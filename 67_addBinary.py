@@ -10,4 +10,5 @@ class Solution:
 			return None
 
 sol = Solution()
-sol.addBinary('11', '1')
+result = sol.addBinary('11', '1')
+print(result)
