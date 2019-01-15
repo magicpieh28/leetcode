@@ -1,28 +1,10 @@
 class Solution:
 	def romanToInt(self, s: str):
-		self.s = s
-
-		roman = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
-		number = [1000, 500, 100, 50, 10, 5, 1]
-
-		result = 0; index = 0
-		try:
-			while index <= len(s) - 1:
-				if index == len(s) - 1:
-					result += number [roman.index(s[index])]
-					break
-				elif number[roman.index(s[index])] < number[roman.index(s[index + 1])]:
-					num = number[roman.index(s[index + 1])] - number[roman.index(s[index])]
-					result += num
-					index += 2
-				else:
-					result += number[roman.index(s[index])]
-					index += 1
-		except ValueError:
-			result = 0
-
-		return result
+		values = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
+		s = [values[x] for x in s]
+		# + [0]을 하는 이유는 비교하려는 대상의 길이를 맞추기 위해
+		return sum(-x if x < y else x for x, y in zip(s, s[1:] + [0]))
 
 sol = Solution()
 # import pdb; pdb.set_trace()
-print(sol.romanToInt(' '))
+print(sol.romanToInt('MDIV'))
